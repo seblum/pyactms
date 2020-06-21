@@ -6,7 +6,7 @@ ACT-MS (ACT-R Mental Simulation) is an implementation based on the Python dispat
 
 Overall, the library contains methods to: 
 
-- **(1)** - to forward and exchange parameters between the metamodel and the submodels.
+- (1) - to forward and exchange parameters between the metamodel and the submodels.
 - **(2)** - save the exchanged simulation parameters in a dictionary.
 - **(3)** - enable utility learning over multiple ACT-R runs by saving the utility of one run respectively.
 
