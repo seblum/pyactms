@@ -54,19 +54,19 @@ Call of the method <em>return-from-submodel</em> in a production of the submodel
 (P action-retour-1
    =goal>
      state          action-1
-     action 		1
+     action 		    1
    ?manual>   
      state          free
    =imaginal>
      response       =duration
 ==>
    +manual>              
-     cmd      		press-key     
-     key      		=duration
+     cmd      		  press-key     
+     key      		  =duration
    -imaginal>
    =goal>
-     state 			idle
-     action			idle
+     state 			    idle
+     action			    idle
 !eval! ("return-from-submodel" =duration 1 "retrieve-action" "resultactionone")
   )
 
