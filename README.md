@@ -34,14 +34,14 @@ Call of the method <em>simulate-submodel</em> in a production of the metamodel t
 
 (p simulate-middle-submodel
   =goal>
-    state               simulate-submodel
-    action              =actionnumber
+    state           simulate-submodel
+    action          =actionnumber
   =imaginal>
 ==>
   =imaginal>
   =goal>
-    state               free
-    action              =actionnumber
+    state           free
+    action          =actionnumber
 !eval! ("simulate-submodel" "middle-model" =actionnumber)
   )
 
@@ -51,24 +51,24 @@ Call of the method <em>return-from-submodel</em> in a production of the submodel
 
 ```lisp
 
-  (P action-retour-1
-    =goal>
-     state              action-1
-     action 			1
-    ?manual>   
-      state             free
-    =imaginal>
-        response        =duration
-   ==>
-    +manual>              
-      cmd      press-key     
-      key      =duration
-    -imaginal>
-    =goal>
-      state 			idle
-      action 			idle
+(P action-retour-1
+   =goal>
+     state          action-1
+     action 		1
+   ?manual>   
+     state          free
+   =imaginal>
+     response       =duration
+==>
+   +manual>              
+     cmd      		press-key     
+     key      		=duration
+   -imaginal>
+   =goal>
+     state 			idle
+     action			idle
 !eval! ("return-from-submodel" =duration 1 "retrieve-action" "resultactionone")
-    )
+  )
 
 ```
 
@@ -78,7 +78,7 @@ Initialization of ACT-MS. Saving the session number in the simulation results. R
 	
 	import actms as ms
 	session = 1
-	
+
 	ms.init_actms()
     ms.writeToProtocol("Session", session)
 
