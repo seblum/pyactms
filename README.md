@@ -27,6 +27,9 @@ pip install git+https://github.com/seblum/actms
 
 Take a look at the [examples](examples) folder for an exemplary use case.
 
+
+Call of the method <em>simulate-submodel</em> in a production of the metamodel to start the mental simulation of another specified ACT-R model <em>middle-model</em>.
+
 ```lisp
 
 (p simulate-middle-submodel
@@ -43,6 +46,8 @@ Take a look at the [examples](examples) folder for an exemplary use case.
   )
 
 ```
+
+Call of the method <em>return-from-submodel</em> in a production of the submodel to forward given parameters to the metamodel and save them within a specific slot of the imaginal chunk <em>resultactionone</em>.
 
 ```lisp
 
@@ -67,16 +72,20 @@ Take a look at the [examples](examples) folder for an exemplary use case.
 
 ```
 
+Initialization of ACT-MS. Saving the session number in the simulation results. Run of ACT-R model. Fetching the saved simulation / forwarded paramenters and saving them to a dataframe. Printing the dataframe.
+
 ```python
+	
+	import actms as ms
+	session = 1
+	
+	ms.init_actms()
+    ms.writeToProtocol("Session", session)
 
-ms.init_actms()
-        ms.writeToProtocol("Session", ses)
-        ms.writeToProtocol("timesRun", tr)
+    actr.run_until_condition("end-program", True)       
 
-        actr.run_until_condition("end-program", True)       
-
-        tmpresult = ms.getProtocol()
-        printer = pd.concat([printer, tmpresult])
+    printer = ms.getProtocol()
+	printer.to_csv('simulation_results.csv')
 
 ```
 
