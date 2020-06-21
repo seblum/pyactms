@@ -99,13 +99,14 @@ Initialization of ACT-MS. Saving the session number in the simulation results. R
 ## Example
 
 - **RUN-metamodel.py** 
+
 - **EF-submodel-left.lisp**
+
 - **EF-metamodel.lisp** 
 
 ## TODO
 Possible additional feature to add:
 
-<<<<<<< HEAD
 - [ ] Add more dynamic and additional possibilites to save simulation parameters
 - [ ] Add more dynamic read in for data
 - [ ] Add debugging support 
