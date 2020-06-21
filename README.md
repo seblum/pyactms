@@ -54,19 +54,19 @@ Call of the method <em>return-from-submodel</em> in a production of the submodel
 (P action-retour-1
    =goal>
      state          action-1
-     action 		    1
+     action	    1
    ?manual>   
      state          free
    =imaginal>
      response       =duration
 ==>
    +manual>              
-     cmd      		  press-key     
-     key      		  =duration
+     cmd	    press-key     
+     key       	    =duration
    -imaginal>
    =goal>
-     state 			    idle
-     action			    idle
+     state 	    idle
+     action	    idle
 !eval! ("return-from-submodel" =duration 1 "retrieve-action" "resultactionone")
   )
 
@@ -76,16 +76,16 @@ Initialization of ACT-MS. Saving the session number in the simulation results. R
 
 ```python
 	
-	import actms as ms
-	session = 1
+import actms as ms
+session = 1
 
-	ms.init_actms()
-    ms.writeToProtocol("Session", session)
+ms.init_actms()
+ms.writeToProtocol("Session", session)
 
-    actr.run_until_condition("end-program", True)       
+actr.run_until_condition("end-program", True)       
 
-    printer = ms.getProtocol()
-	printer.to_csv('simulation_results.csv')
+printer = ms.getProtocol()
+printer.to_csv('simulation_results.csv')
 
 ```
 
