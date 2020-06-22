@@ -108,5 +108,5 @@ printer.to_csv('simulation_results.csv')
 Possible additional feature to add:
 
 - [ ] Add more dynamic and additional possibilites to save simulation parameters
-- [ ] Add more dynamic read in for data
+- [ ] Add more possibilities to exchange parameters
 - [ ] Add debugging support 
