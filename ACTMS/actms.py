@@ -103,4 +103,5 @@ def init_actms():
     actr.add_command("simulate-submodel", simulate_submodel, "back to main function")
     actr.add_command("return-from-submodel", return_from_submodel, "back to main function")
     actr.add_command("end-program", end_program,"returns that model is finished")
-   
+    actr.add_command("writetoprotocol", writeToProtocol, "write parameters to protocol")
+   	writeToProtocol
