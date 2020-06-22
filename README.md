@@ -75,7 +75,7 @@ Call of the method <em>return-from-submodel</em> in a production of the submodel
 Initialization of ACT-MS. Saving the session number in the simulation results. Run of ACT-R model. Fetching the saved simulation / forwarded paramenters and saving them to a dataframe. Printing the dataframe.
 
 ```python
-	
+import actr
 import actms as ms
 session = 1
 
