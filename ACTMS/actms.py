@@ -11,97 +11,105 @@ import pandas as pd
 
 
 
-'''
-Create a dictionary to save all the simulation parameters
-''' 
-dict = {}
+class ActMSProtocol():
 
-def writeToProtocol(name, variable):
-    dict.update( { name : variable } )
+	def __init__(self):
+		self.dict = {}
 
-def getProtocol():
-    return pd.DataFrame([dict])
+	def writeToProtocol(self. name, variable):
+	    self.dict.update( { name : variable } )
 
-def deleteProtocol():
-    dict.clear()
+	def getProtocol():
+	    return pd.DataFrame([self.dict])
 
-
-
-
-'''
-Forward parameters from one model to another
-''' 
-main_name = "main-model" # default is main model, normative has to be specified
-
-def set_main_model(name):
-    global main_name
-    main_name = name
-
-def simulate_submodel(model, action):
-    actr.set_current_model(model)
-    actr.schedule_mod_buffer_chunk("goal",["state", "simulate", "action", action],0) # simulate dynamic
-    writeToProtocol( "action-" + str(action), "simulate-" + str(model))
-
-def return_from_submodel(input, action, goalstatevar, imaginalslot):
-    actr.set_current_model(main_name)
-    actr.schedule_mod_buffer_chunk("goal", ["state", goalstatevar], 0)
-    actr.schedule_mod_buffer_chunk("imaginal", [imaginalslot, "\'" + input + "\'"], 0)
-    writeToProtocol("forwardto-" + str(main_name) + "-" + str(action), input)
+	def deleteProtocol():
+	    self.dict.clear()
 
 
 
 
-'''
-UTILITY LEARNING OVER MODELS
-''' 
-utilitylist = list
-savelist = list
+class ActMS():
 
-def resetutility():
-    global utilitylist
-    utilitylist = list
+	def __init__(self, modelname):
+		self.name = modelname
+		actr.add_command("simulate-submodel", self.simulate_submodel, "back to main function")
+	    actr.add_command("return-from-submodel", self.return_from_submodel, "back to main function")
+	    actr.add_command("end-program", self.end_program,"returns that model is finished")
+	   
+	def simulate_submodel(self, model, action):
+	    actr.set_current_model(model)
+	    actr.schedule_mod_buffer_chunk("goal",["state", "simulate", "action", action],0) # simulate dynamic
+	    writeToProtocol( "action-" + str(action), "simulate-" + str(model))
 
-def saveutility():
-    global savelist
-    savelist = utilitylist
+	def return_from_submodel(self, input, action, goalstatevar, imaginalslot):
+	    actr.set_current_model(self.name)
+	    actr.schedule_mod_buffer_chunk("goal", ["state", goalstatevar], 0)
+	    actr.schedule_mod_buffer_chunk("imaginal", [imaginalslot, "\'" + input + "\'"], 0)
+	    writeToProtocol(f"forwardto-{self.name}-{action}", input)
 
-def getutility():
-    global utilitylist
-    utilitylist = actr.spp([':name', ':u'])
-
-def setutility():
-    global utilitylist
-
-    for idx,val in enumerate(utilitylist[0:14]):
-            utilitylist[idx][1] = 0
-
-    for idx,val in enumerate(utilitylist):
-        actr.spp(val[0],':u',val[1])
-    print("-"*30 + " Utility Reset ")         
-
-def setsaveutility():
-    global savelist
-    for idx,val in enumerate(savelist[0:14]):
-            savelist[idx][1] = 0
-
-    for idx,val in enumerate(savelist):
-        actr.spp(val[0],':u',val[1])
-    print("-"*30 + " Utility Reset ")       
+	def end_program(self, input):
+	    if input == 1:
+	        return True
 
 
 
+class ActMSUtility:
+	'''
+	UTILITY LEARNING OVER MODELS
+	''' 
+	def __init__(self)
+		self.initial_utility = list()
+		self.new_utility = self.getutility()
+
+	def getutility():
+	    #self.new_utility
+	    return actr.spp([':name', ':u'])
 
 '''
-STATE THAT PROGRAM HAS ENDED
-''' 
-def end_program(input):
-    if input == 1:
-        return True
-        
-# FINISHED COMMAND TO RUN THE MODEL
-def init_actms():
-    actr.add_command("simulate-submodel", simulate_submodel, "back to main function")
-    actr.add_command("return-from-submodel", return_from_submodel, "back to main function")
-    actr.add_command("end-program", end_program,"returns that model is finished")
-    actr.add_command("writetoprotocol", writeToProtocol, "write parameters to protocol")
-   	writeToProtocol
+	def reset_utility():
+	    self.new_utility = list()
+
+	def save_utility():
+	    self.initial_utility = self.new_utility
+
+	def set_new_utility():
+	    for idx,val in enumerate(self.new_utility[0:14]):
+	            self.new_utility[idx][1] = 0
+
+	    for idx,val in enumerate(self.new_utility):
+	        actr.spp(val[0],':u',val[1])
+	    print("-"*30 + " Utility Reset ")         
+
+	def set_initial_utility():
+	    for idx,val in enumerate(self.initial_utility[0:14]):
+	            self.initial_utility[idx][1] = 0
+
+	    for idx,val in enumerate(self.initial_utility):
+	        actr.spp(val[0],':u',val[1])
+	    print("-"*30 + " Utility Reset ")       
+'''
+
+	def model_start():
+		'''
+		Model start after reset
+		'''
+		self.initial_utility = self.new_utility
+
+	def model_end():
+		'''
+		model end after run and before reset
+		'''
+		# get new utility
+		self.new_utility = self.getutility()
+
+		# save new utility
+	    for idx,val in enumerate(self.new_utility[0:14]):
+        self.new_utility[idx][1] = 0
+
+	    for idx,val in enumerate(self.new_utility):
+	        actr.spp(val[0],':u',val[1])
+	    print("-"*30 + " Utility Reset ")         
+
+
+ 
+    
