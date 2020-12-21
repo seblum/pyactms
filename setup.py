@@ -31,7 +31,7 @@ setup(
     description="Enable mental simulation of multiple cognitive models within the Cognitive Architecture ACT-R",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/seblum/actcv",
+    url="https://github.com/seblum/pyactms",
     packages=find_packages(),
     install_requires=install_requires,
     setup_requires=setup_requires,
