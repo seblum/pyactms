@@ -16,13 +16,13 @@ class ActMSProtocol:
 	def __init__(self):
 		self.dict = {}
 
-	def writeToProtocol(self. name, variable):
+	def writeToProtocol(self, name, variable):
 	    self.dict.update( { name : variable } )
 
-	def getProtocol():
+	def getProtocol(self):
 	    return pd.DataFrame([self.dict])
 
-	def deleteProtocol():
+	def deleteProtocol(self):
 	    self.dict.clear()
 
 
@@ -61,24 +61,24 @@ class ActMSUtility:
 		self.initial_utility = list()
 		self.new_utility = self.getutility()
 
-	def getutility():
+	def getutility(self):
 	    #self.new_utility
 	    return actr.spp([':name', ':u'])
 
 '''
-	def reset_utility():
+	def reset_utility(self):
 	    self.new_utility = list()
 
-	def save_utility():
+	def save_utility(self):
 	    self.initial_utility = self.new_utility
 
-	def set_new_utility():
+	def set_new_utility(self):
 	    for idx,val in enumerate(self.new_utility[0:14]):
 	            self.new_utility[idx][1] = 0
 
 	    for idx,val in enumerate(self.new_utility):
 	        actr.spp(val[0],':u',val[1])
-	    print("-"*30 + " Utility Reset ")         
+	    	print("-"*30 + " Utility Reset ")         
 
 	def set_initial_utility():
 	    for idx,val in enumerate(self.initial_utility[0:14]):
@@ -86,16 +86,16 @@ class ActMSUtility:
 
 	    for idx,val in enumerate(self.initial_utility):
 	        actr.spp(val[0],':u',val[1])
-	    print("-"*30 + " Utility Reset ")       
+	    	print("-"*30 + " Utility Reset ")       
 '''
 
-	def model_start():
+	def model_start(self):
 		'''
 		Model start after reset
 		'''
 		self.initial_utility = self.new_utility
 
-	def model_end():
+	def model_end(self):
 		'''
 		model end after run and before reset
 		'''
@@ -104,11 +104,11 @@ class ActMSUtility:
 
 		# save new utility
 	    for idx,val in enumerate(self.new_utility[0:14]):
-        self.new_utility[idx][1] = 0
+        	self.new_utility[idx][1] = 0
 
 	    for idx,val in enumerate(self.new_utility):
 	        actr.spp(val[0],':u',val[1])
-	    print("-"*30 + " Utility Reset ")         
+	    	print("-"*30 + " Utility Reset ")         
 
 
  
