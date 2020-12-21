@@ -18,6 +18,7 @@ tests_require = [
     'pytest',
     'coverage',
     'pytest-cov',
+    'coveralls'
 ]
 
 with open("README.md", "r") as fh:
