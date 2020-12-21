@@ -5,7 +5,7 @@ import numpy as np
 #from collections import namedtuple
 #from collections import OrderedDict
 
-import actms as cv
+import pyactms as cv
 
 class TestActMS(object):
 
