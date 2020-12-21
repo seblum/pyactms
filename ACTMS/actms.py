@@ -5,13 +5,13 @@ Created on Wed Aug 28 08:24:27 2019
 @author: Sebastian Blum
 """
 
-import actr
+from . import actr
 import numpy as np
 import pandas as pd
 
 
 
-class ActMSProtocol():
+class ActMSProtocol:
 
 	def __init__(self):
 		self.dict = {}
@@ -28,7 +28,7 @@ class ActMSProtocol():
 
 
 
-class ActMS():
+class ActMS:
 
 	def __init__(self, modelname):
 		self.name = modelname

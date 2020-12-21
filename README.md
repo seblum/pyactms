@@ -16,17 +16,19 @@ Overall, the library contains methods to:
 ![Exemplary Visicon](mentalsimulation.png)
 
 
-## Installation
+## Installation [in Progress]
 
 ```bash
 pip install git+https://github.com/seblum/actms
 ```
-
+or
+```bash
+pip install pyactms
+```
 
 ## Quick-Start
 
 Take a look at the [examples](examples) folder for an exemplary use case.
-
 
 Call of the method <em>simulate-submodel</em> in a production of the metamodel to start the mental simulation of another specified ACT-R model <em>middle-model</em>.
 
@@ -75,16 +77,18 @@ Call of the method <em>return-from-submodel</em> in a production of the submodel
 Initialization of ACT-MS. Saving the session number in the simulation results. Run of ACT-R model. Fetching the saved simulation / forwarded paramenters and saving them to a dataframe. Printing the dataframe.
 
 ```python
+
 import actr
 import actms as ms
 session = 1
 
-ms.init_actms()
-ms.writeToProtocol("Session", session)
+actms = ActMS('mainmodelname')
 
 actr.run_until_condition("end-program", True)       
 
-printer = ms.getProtocol()
+# return simulation results as df
+printer = actms.Protocol("Session", session)
+
 printer.to_csv('simulation_results.csv')
 
 ```
