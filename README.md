@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/seblum/pyactms.svg?branch=master)](https://travis-ci.org/seblum/pyactms)
 
-[![Coverage Status](https://coveralls.io/repos/github/seblum/pyactcv/badge.svg)](https://coveralls.io/github/seblum/pyactcv)
+[![Coverage Status](https://coveralls.io/repos/github/seblum/pyactms/badge.svg)](https://coveralls.io/github/seblum/pyactms)
 
 # ActMS - python interface
 
