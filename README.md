@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/seblum/pyactms.svg?branch=master)](https://travis-ci.org/seblum/pyactms)
 [![Coverage Status](https://coveralls.io/repos/github/seblum/pyactms/badge.svg)](https://coveralls.io/github/seblum/pyactms)
 
+
 # ActMS - python interface
 
 This is a library to enable mental simulation of multiple cognitive models within the Cognitive Architecture ACT-R.
@@ -14,22 +15,21 @@ Overall, the library contains methods to:
 - enable utility learning over multiple ACT-R runs by saving the utility of one run respectively.
 
 
-[1] <cite> new paper </cite> 
-
-![Exemplary Visicon](mentalsimulation.png)
+![Structure of MS implementation](https://raw.githubusercontent.com/seblum/pyactms/master/mentalsimulation.png)
 
 
 ## Installation [in Progress]
 
 ```bash
-pip install git+https://github.com/seblum/actms
+pip install pyactms
 ```
 or
 ```bash
-pip install pyactms
+pip install git+https://github.com/seblum/actms
 ```
 
-## Quick-Start
+
+## Usage
 
 Take a look at the [examples](examples) folder for an exemplary use case.
 
@@ -96,11 +96,12 @@ printer.to_csv('simulation_results.csv')
 
 ```
 
+
 ## Files
 
 - **actms.py** - Contains the interface of ACT-MS and methods to load a user data set into the visicon of ACT-R.
 
-- **actr.py** - Contains the dispatcher of ACT-R version 7.13., which is necessary to form a connection between python and ACT-R.
+- **actr.py** - Contains the dispatcher of ACT-R version 7.12., which is necessary to form a connection between python and ACT-R (see http://act-r.psy.cmu.edu/). 
 
 
 ## Example
@@ -111,9 +112,23 @@ printer.to_csv('simulation_results.csv')
 
 - **EF-metamodel.lisp** 
 
+
 ## TODO
 Possible additional feature to add:
 
 - [ ] Add more dynamic and additional possibilites to save simulation parameters
 - [ ] Add more possibilities to exchange parameters
 - [ ] Add debugging support 
+
+
+## Developing pyactms
+To install pyactcv along with the tools to develop and run tests please run the following in your virtualenv:
+
+```bash
+$ pip install -e .[dev]
+```
+
+
+## Bibliography
+
+[1] <cite> new paper </cite> 
