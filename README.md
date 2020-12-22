@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/seblum/pyactms.svg?branch=master)](https://travis-ci.org/seblum/pyactms)
 [![Coverage Status](https://coveralls.io/repos/github/seblum/pyactms/badge.svg)](https://coveralls.io/github/seblum/pyactms)
+[![PyPI version fury.io](https://img.shields.io/pypi/v/pyactms?color=green)](https://pypi.python.org/pypi/pyactms/)
+[![PyPI license](https://img.shields.io/pypi/l/pyactms)](https://pypi.python.org/pypi/pyactms/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyactms)](https://pypi.python.org/pypi/pyactms/)
 
 
 # ActMS - python interface
