@@ -21,7 +21,7 @@ Overall, the library contains methods to:
 ![Structure of MS implementation](https://raw.githubusercontent.com/seblum/pyactms/master/mentalsimulation.png)
 
 
-## Installation [in Progress]
+## Installation
 
 ```bash
 pip install pyactms
