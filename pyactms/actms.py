@@ -5,7 +5,7 @@
 @author: seblum
 """
 
-import actr
+from . import actr
 import numpy as np
 import pandas as pd
 
