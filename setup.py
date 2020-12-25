@@ -35,7 +35,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="pyactms", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Sebastian Blum",
     author_email="sebast.blum@gmail.com",
     description="Enable mental simulation of multiple cognitive models within the Cognitive Architecture ACT-R",
