@@ -1,5 +1,6 @@
 include *.md
 exclude *.png
+exclude make_package.md
 exclude .DS_Store
 exclude .gitignore
 exclude .travis.yml
