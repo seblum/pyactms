@@ -3,6 +3,7 @@
 [![PyPI version fury.io](https://img.shields.io/pypi/v/pyactms?color=green)](https://pypi.python.org/pypi/pyactms/)
 [![PyPI license](https://img.shields.io/pypi/l/pyactms)](https://pypi.python.org/pypi/pyactms/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyactms)](https://pypi.python.org/pypi/pyactms/)
+[![PyPI actrversion fury.io](https://img.shields.io/badge/ACT--R-v7.21-blue)](https://pypi.python.org/pypi/pyactcv/)
 
 
 # ActMS - python interface
